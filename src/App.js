@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+// Routing
+// is switching once web page to another is known as routing
+// to use routing - npm install react-router-dom
+// implement links
+
+import React from 'react'
+import AboutUs from './AboutUs'
+import ContactUs from './ContactUs'
+import Home from './Home'
+import NotFound from './NotFound'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              {' '}
+              <Link to="/about">About Us</Link>
+            </li>
+            <li>
+              {' '}
+              <Link to="/contact">Contact Us</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<AboutUs />}></Route>
+          <Route path="/contact" element={<ContactUs />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </div>
+    </Router>
+  )
 }
 
-export default App;
+export default App
