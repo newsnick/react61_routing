@@ -1,43 +1,137 @@
-// Routing
-// is switching once web page to another is known as routing
-// to use routing - npm install react-router-dom
-// implement links
-
+// useLocation
+// ----------------
+// is hook use to transfer and access data object that pass from parent object to child object.
 import React from 'react'
-import AboutUs from './AboutUs'
-import ContactUs from './ContactUs'
-import Home from './Home'
-import NotFound from './NotFound'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import AboutUs from './AboutUs'
+import Home from './HomePage'
+import ParentComponent from './ParentComponent'
+import ChildComponent from './ChildComponent'
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              {' '}
-              <Link to="/about">About Us</Link>
-            </li>
-            <li>
-              {' '}
-              <Link to="/contact">Contact Us</Link>
-            </li>
-          </ul>
-        </nav>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/about" element={<AboutUs />}></Route>
-          <Route path="/contact" element={<ContactUs />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-      </div>
-    </Router>
-  )
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/aboutus">About Us</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/parent">Parent Component</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/parent" element={<ParentComponent />} />
+            <Route path="/parent/child" element={<ChildComponent />} />
+          </Routes>
+        </div>
+      </Router>
+    )
+  }
 }
 
 export default App
+
+// useLocation
+// ----------------
+// is hook use to transfer and access data object that pass from parent object to child object.
+// import React from "react";
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import AboutUs from "./AboutUs";
+// import Home from "./HomePage";
+// import ParentComponent from "./ParentComponent";
+// import ChildComponent from "./ChildComponent";
+
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <Router>
+//         <div>
+//           <nav>
+//             <ul>
+//               <li>
+//                 <Link to="/">Home</Link>
+//               </li>
+//               <li>
+//                 <Link to="/aboutus">About Us</Link>
+//               </li>
+//               <li>
+//                 <Link to="/contact">Contact</Link>
+//               </li>
+//               <li>
+//                 <Link to="/parent">Parent Component</Link>
+//               </li>
+//             </ul>
+//           </nav>
+
+//           <Routes>
+//             <Route path="/" element={<Home />} />
+//             <Route path="/aboutus" element={<AboutUs />} />
+//             <Route path="/parent" element={<ParentComponent />} />
+//             <Route path="/parent/child" element={<ChildComponent />} />
+//           </Routes>
+//         </div>
+//       </Router>
+//     );
+//   }
+// }
+
+// export default App;
+
+// ------------------
+// Link tag
+// ---------------------
+// import React from 'react'
+// import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'
+// import AboutUs from './AboutUs'
+// import Home from './HomePage'
+
+// class App extends React.Component {
+//   constructor() {
+//     super()
+//   }
+
+//   render() {
+//     return (
+//       <Router>
+//         <div>
+//           <nav>
+//             <ul>
+//               <li>
+//                 <Link to="/">Home</Link>
+//               </li>
+//               <li>
+//                 <Link to="/aboutus">About Us</Link>
+//               </li>
+//               <li>
+//                 <Link to="/contact">Contact</Link>
+//               </li>
+//             </ul>
+//           </nav>
+
+//           <Routes>
+//             <Route path="/" element={<Home />} />
+//             <Route path="/aboutus" element={<AboutUs />} />
+//             {/* Add more routes for other pages */}
+//             {/* <Route path="/contact" element={<Contact />} /> */}
+//             {/* <Route path="*" element={<NotFound />} /> */}
+//           </Routes>
+//         </div>
+//       </Router>
+//     )
+//   }
+// }
+
+// export default App
